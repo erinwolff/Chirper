@@ -36,7 +36,10 @@ export const PostCard = ({ post }) => {
 /** Main interface for user to interact with their posts */
 export default function Posts() {
   const token = useSelector(selectToken);
-  const { data: posts, isLoading } = useGetPostsQuery();
+  const { data, isLoading } = useGetPostsQuery();
+  const posts = data?.posts || [];
+  const username = data?.username || "";
+  
 
   if (!token) {
     return <p>You must be logged in to see your posts.</p>;
@@ -44,7 +47,7 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <h2 className="welcome">Welcome Home ~</h2>
+      <h2 className="welcome">Welcome home {username} ~</h2>
       <div className="new-post">
         <h3>Create a new post:</h3>
         <PostForm />
