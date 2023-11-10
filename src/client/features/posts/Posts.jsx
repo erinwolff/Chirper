@@ -39,7 +39,7 @@ export default function Posts() {
   const { data: posts, isLoading } = useGetPostsQuery();
 
   if (!token) {
-    return <p>You must be logged in to see your tasks.</p>;
+    return <p>You must be logged in to see your posts.</p>;
   }
 
   return (
