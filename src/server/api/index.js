@@ -9,7 +9,7 @@ module.exports = router;
 router.use(async (req, res, next) => {
   // Check for token
   const authHeader = req.headers.authorization;
-  const token = authHeader?.split(" ")[1]; // "Bearer <token>"
+  const token = authHeader?.split(" ")[1]; // "Bearer <token>"  
   if (!authHeader || !token) {
     return next();
   }
@@ -27,4 +27,4 @@ router.use(async (req, res, next) => {
 });
 
 router.use("/auth", require("./auth"));
-router.use("/tasks", require("./tasks"));
+router.use("/posts", require("./posts"));
