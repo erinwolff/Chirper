@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="posts">
-      <h2 className="welcome">what the birds are chirping about: </h2>
+      <h2 className="welcome">see what the birds are chirping about: </h2>
       {isLoading && <p>Loading posts...</p>}
       {posts && (
         <ul>
