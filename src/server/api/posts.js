@@ -26,25 +26,27 @@ router.get("/", async (req, res, next) => {
 });
 
 // /** Creates new post and sends it */
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const { description, done } = req.body;
-//     if (!description) {
-//       throw new ServerError(400, "Description required.");
-//     }
+// /api/posts
+router.post("/", async (req, res, next) => {
+  try {
+    const { post } = req.body;
+    if (!post) {
+      throw new ServerError(400, "Post text required.");
+    }
 
-//     const task = await prisma.task.create({
-//       data: {
-//         description,
-//         done: done ?? false,
-//         user: { connect: { id: res.locals.user.id } },
-//       },
-//     });
-//     res.json(task);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+    const newPost = await prisma.post.create({
+      data: {
+        post: post,
+        user: {
+          connect: { id: res.locals.user.id }
+        }
+      },
+    });
+    res.json(newPost);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // /** Checks if post exists and belongs to given user */
 // const validateTask = (user, task) => {
