@@ -48,16 +48,16 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// /** Checks if post exists and belongs to given user */
-// const validateTask = (user, task) => {
-//   if (!task) {
-//     throw new ServerError(404, "Task not found.");
-//   }
+/** Checks if post exists and belongs to given user */
+const validatePost = (user, post) => {
+  if (!post) {
+    throw new ServerError(404, "Post not found.");
+  }
 
-//   if (task.userId !== user.id) {
-//     throw new ServerError(403, "This task does not belong to you.");
-//   }
-// };
+  if (post.userId !== user.id) {
+    throw new ServerError(403, "This post does not belong to you.");
+  }
+};
 
 // /** Sends single post by id */
 // router.get("/:id", async (req, res, next) => {
@@ -93,16 +93,16 @@ router.post("/", async (req, res, next) => {
 // });
 
 // /** Deletes single post by id */
-// router.delete("/:id", async (req, res, next) => {
-//   try {
-//     const id = +req.params.id;
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const id = +req.params.id;
 
-//     const task = await prisma.task.findUnique({ where: { id } });
-//     validateTask(res.locals.user, task);
+    const post = await prisma.post.findUnique({ where: { id } });
+    validatePost(res.locals.user, post);
 
-//     await prisma.task.delete({ where: { id } });
-//     res.sendStatus(204);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+    await prisma.post.delete({ where: { id } });
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
