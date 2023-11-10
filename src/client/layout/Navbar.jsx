@@ -27,6 +27,7 @@ export default function Navbar() {
       <menu>
         {token ? (
           <li className="navbar">
+            <NavLink to="/home">Home</NavLink>
             <NavLink to="/posts">Profile</NavLink>
             <a onClick={handleLogout}>Log Out</a>
           </li>
