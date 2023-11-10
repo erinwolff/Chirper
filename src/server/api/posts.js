@@ -12,7 +12,7 @@ router.use((req, res, next) => {
   next();
 });
 
-/** Gets all posts */
+/** Gets all posts made by logged-in user */
 // /api/posts
 router.get("/", async (req, res, next) => {
   try {
@@ -25,7 +25,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// /** Creates new post and sends it */
+// /** Creates new post and posts it */
 // /api/posts
 router.post("/", async (req, res, next) => {
   try {
@@ -58,39 +58,6 @@ const validatePost = (user, post) => {
     throw new ServerError(403, "This post does not belong to you.");
   }
 };
-
-// /** Sends single post by id */
-// router.get("/:id", async (req, res, next) => {
-//   try {
-//     const id = +req.params.id;
-
-//     const task = await prisma.task.findUnique({ where: { id } });
-//     validateTask(res.locals.user, task);
-
-//     res.json(task);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
-// /** Updates single post by id */
-// router.put("/:id", async (req, res, next) => {
-//   try {
-//     const id = +req.params.id;
-//     const { description, done } = req.body;
-
-//     const task = await prisma.task.findUnique({ where: { id } });
-//     validateTask(res.locals.user, task);
-
-//     const updatedTask = await prisma.task.update({
-//       where: { id },
-//       data: { description, done },
-//     });
-//     res.json(updatedTask);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 // /** Deletes single post by id */
 router.delete("/:id", async (req, res, next) => {

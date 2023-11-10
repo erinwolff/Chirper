@@ -5,13 +5,13 @@ import PostForm from "./PostForm";
 import { useNavigate } from "react-router-dom";
 
 export const PostCard = ({ post }) => {
-// Handle delete fucntion
-const navigate = useNavigate();
-const [deletePost] = useDeletePostMutation();
-const handleDelete = () => {
-  deletePost(post.id);
-  navigate("/posts");
-}
+  // Handle delete fucntion
+  const navigate = useNavigate();
+  const [deletePost] = useDeletePostMutation();
+  const handleDelete = () => {
+    deletePost(post.id);
+    navigate("/posts");
+  }
 
   return (
     <>
@@ -20,13 +20,13 @@ const handleDelete = () => {
           <li className="post">
             <p className="post-text">
               {post.post}
-              <br/>
+              <br />
               <button className="deleteButton" onClick={handleDelete}>DELETE</button>
             </p>
-            
+
           </li>
         </section>
-        
+
       </ul>
     </>
   )
@@ -46,8 +46,8 @@ export default function Posts() {
     <div className="posts">
       <h2 className="welcome">Welcome Home ~</h2>
       <div className="new-post">
-      <h3>Create a new post:</h3>
-      <PostForm/>
+        <h3>Create a new post:</h3>
+        <PostForm />
       </div>
       {isLoading && <p>Loading posts...</p>}
       {posts && (

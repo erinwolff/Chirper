@@ -6,10 +6,6 @@ const postsApi = api.injectEndpoints({
       query: () => "/posts",
       providesTags: ["Posts"],
     }),
-    // getTask: builder.query({
-    //   query: (id) => `/tasks/${id}`,
-    //   providesTags: ["Tasks"],
-    // }),
     createPost: builder.mutation({
       query: (post) => ({
         url: "/posts",
@@ -18,14 +14,6 @@ const postsApi = api.injectEndpoints({
       }),
       invalidatesTags: ["Posts"],
     }),
-    // editTask: builder.mutation({
-    //   query: (task) => ({
-    //     url: `/tasks/${task.id}`,
-    //     method: "PUT",
-    //     body: task,
-    //   }),
-    //   invalidatesTags: ["Tasks"],
-    // }),
     deletePost: builder.mutation({
       query: (id) => ({
         url: `/posts/${id}`,
@@ -38,8 +26,6 @@ const postsApi = api.injectEndpoints({
 
 export const {
   useGetPostsQuery,
-  // useGetTaskQuery,
   useCreatePostMutation,
-  // useEditTaskMutation,
   useDeletePostMutation,
 } = postsApi;
