@@ -39,7 +39,7 @@ export default function Posts() {
   const { data, isLoading } = useGetPostsQuery();
   const posts = data?.posts || [];
   const username = data?.username || "";
-  
+
 
   if (!token) {
     return <p>You must be logged in to see your posts.</p>;
@@ -49,7 +49,6 @@ export default function Posts() {
     <div className="posts">
       <h2 className="welcome">Welcome home {username} ~</h2>
       <div className="new-post">
-        <h3>Create a new post:</h3>
         <PostForm />
       </div>
       {isLoading && <p>Loading posts...</p>}

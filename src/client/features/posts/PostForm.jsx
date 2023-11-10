@@ -17,13 +17,15 @@ function PostForm() {
     <>
       <form className="new-post-form" onSubmit={handleSubmit}>
         <label>
-          What's going on?:
-          <input required
+          <h3>What's going on?</h3>
+          <br/>
+          <textarea className="new-post-field" required
             type="text"
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
           />
         </label>
+        <br/>
         <button>Submit</button>
       </form>
     </>
