@@ -43,10 +43,10 @@ export default function AuthForm() {
 
   return (
     <>
-      <h1>{authAction}</h1>
-      <form onSubmit={attemptAuth}>
-        <label>
-          Username
+      <h1 className="auth-header">{authAction}</h1>
+      <form className="auth-form" onSubmit={attemptAuth}>
+        <label className="auth-label">
+          Username:
           <input
             type="text"
             value={username}
@@ -54,8 +54,8 @@ export default function AuthForm() {
             autoComplete="username"
           />
         </label>
-        <label>
-          Password
+        <label className="auth-label">
+          Password:
           <input
             type="password"
             value={password}
@@ -65,7 +65,7 @@ export default function AuthForm() {
         </label>
         <button>{authAction}</button>
       </form>
-      <a onClick={() => setIsLogin(!isLogin)}>{altCopy}</a>
+      <a className="auth-link" onClick={() => setIsLogin(!isLogin)}>{altCopy}</a>
 
       {(loginLoading || registerLoading) && <p>Please wait...</p>}
       {loginError && <p role="alert">{loginError}</p>}
