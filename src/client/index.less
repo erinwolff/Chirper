@@ -1,13 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter");
-
-@bg: #ffffff;
-@text: #333;
+@bg: #6480bd98;
+@text: #000000;
 @link-color: #428bca; // sea blue
 @link-color-hover: darken(@link-color, 10%);
 
 :root {
-  font-family: Inter, sans-serif;
-
+  font-family: monospace;
   color: @text;
   background-color: @bg;
 }
@@ -33,4 +30,44 @@ a {
     text-decoration: underline;
     color: @link-color-hover;
   }
+}
+
+.post {
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
+  margin: 5%;
+  padding: 3%;
+  background-color: white;
+
+}
+
+.bird-logo {
+  width: 80px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 25px;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.new-post {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  flex-direction: column;
+  margin: 2%;
 }
