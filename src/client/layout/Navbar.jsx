@@ -25,15 +25,13 @@ export default function Navbar() {
       <img className="bird-logo" src={birdLogo} />
       <h1 className="chirper-header">Chirper</h1>
       <menu>
-        <li>
-          <NavLink to="/posts">Profile</NavLink>
-        </li>
         {token ? (
-          <li>
+          <li className="navbar">
+            <NavLink to="/posts">Profile</NavLink>
             <a onClick={handleLogout}>Log Out</a>
           </li>
         ) : (
-          <li>
+          <li className="navbar">
             <NavLink to="/login">Log In</NavLink>
           </li>
         )}
