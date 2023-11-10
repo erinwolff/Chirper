@@ -12,18 +12,26 @@ router.use((req, res, next) => {
   next();
 });
 
-/** Gets all posts made by logged-in user */
+/** Gets all posts and username made by logged-in user */
 // /api/posts
 router.get("/", async (req, res, next) => {
   try {
-    const result = await prisma.post.findMany({
+    const posts = await prisma.post.findMany({
       where: { userId: res.locals.user.id },
     });
-    res.json(result);
+    const user = await prisma.user.findUnique({
+      where: { id: res.locals.user.id },
+    });
+    const responseData = {
+      posts: posts,
+      username: user.username,
+    };
+    res.json(responseData);
   } catch (err) {
     next(err);
   }
 });
+
 
 // /** Creates new post and posts it */
 // /api/posts
