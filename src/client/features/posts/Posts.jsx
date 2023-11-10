@@ -1,19 +1,20 @@
 import { useSelector } from "react-redux";
 import { selectToken } from "../auth/authSlice";
 import { useGetPostsQuery } from "./postSlice";
+import PostForm from "./PostForm";
 
-export const PostCard = ({post}) => {
+export const PostCard = ({ post }) => {
   return (
     <>
-    <ul className="post-card">
-      <section className="post-info">
-        <li className="post">
-          <p>
-            {post.post}
-          </p>
-        </li>
-      </section>
-    </ul>
+      <ul className="post-card">
+        <section className="post-info">
+          <li className="post">
+            <p>
+              {post.post}
+            </p>
+          </li>
+        </section>
+      </ul>
     </>
   )
 }
@@ -23,15 +24,16 @@ export const PostCard = ({post}) => {
 export default function Posts() {
   const token = useSelector(selectToken);
   const { data: posts, isLoading } = useGetPostsQuery();
-  
+
   if (!token) {
     return <p>You must be logged in to see your tasks.</p>;
   }
 
   return (
     <div className="posts">
-      <h1>Posts</h1>      
-      <h2>Your Posts</h2>
+      <h2>Welcome Home~</h2>
+      <h3>Create a new post:</h3>
+      <PostForm/>
       {isLoading && <p>Loading posts...</p>}
       {posts && (
         <ul>
