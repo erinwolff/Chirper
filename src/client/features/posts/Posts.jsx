@@ -1,9 +1,18 @@
 import { useSelector } from "react-redux";
 import { selectToken } from "../auth/authSlice";
-import { useGetPostsQuery } from "./postSlice";
+import { useDeletePostMutation, useGetPostsQuery } from "./postSlice";
 import PostForm from "./PostForm";
+import { useNavigate } from "react-router-dom";
 
 export const PostCard = ({ post }) => {
+// Handle delete fucntion
+const navigate = useNavigate();
+const [deletePost] = useDeletePostMutation();
+const handleDelete = () => {
+  deletePost(post.id);
+  navigate("/posts");
+}
+
   return (
     <>
       <ul className="post-card">
@@ -11,9 +20,13 @@ export const PostCard = ({ post }) => {
           <li className="post">
             <p className="post-text">
               {post.post}
+              <br/>
+              <button className="deleteButton" onClick={handleDelete}>DELETE</button>
             </p>
+            
           </li>
         </section>
+        
       </ul>
     </>
   )
