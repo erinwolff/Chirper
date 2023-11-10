@@ -6,11 +6,11 @@ const seed = async () => {
     data: {
       username: "foo",
       password: "bar",
-      tasks: {
+      posts: {
         create: [
-          { description: "task 1" },
-          { description: "task 2" },
-          { description: "task 3" },
+          { post: "My very first post!" },
+          { post: "Hello world" },
+          { post: "Today is a nice day." },
         ],
       },
     },
