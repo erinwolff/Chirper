@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logout, selectToken } from "../features/auth/authSlice";
+import birdLogo from '../assets/bird.webp'
 
 import "./Navbar.less";
 
@@ -21,7 +22,8 @@ export default function Navbar() {
 
   return (
     <nav className="top">
-      <h1>Chirper</h1>
+      <img className="bird-logo" src={birdLogo} />
+      <h1 className="chirper-header">Chirper</h1>
       <menu>
         <li>
           <NavLink to="/">Home</NavLink>
