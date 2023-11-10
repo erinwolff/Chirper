@@ -26,7 +26,7 @@ export default function Navbar() {
       <h1 className="chirper-header">Chirper</h1>
       <menu>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/posts">Profile</NavLink>
         </li>
         {token ? (
           <li>
