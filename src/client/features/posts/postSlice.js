@@ -26,13 +26,13 @@ const postsApi = api.injectEndpoints({
     //   }),
     //   invalidatesTags: ["Tasks"],
     // }),
-    // deleteTask: builder.mutation({
-    //   query: (id) => ({
-    //     url: `/tasks/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["Tasks"],
-    // }),
+    deletePost: builder.mutation({
+      query: (id) => ({
+        url: `/posts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Posts"],
+    }),
   }),
 });
 
@@ -41,5 +41,5 @@ export const {
   // useGetTaskQuery,
   useCreatePostMutation,
   // useEditTaskMutation,
-  // useDeleteTaskMutation,
+  useDeletePostMutation,
 } = postsApi;
