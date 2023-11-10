@@ -9,7 +9,7 @@ export const PostCard = ({ post }) => {
       <ul className="post-card">
         <section className="post-info">
           <li className="post">
-            <p>
+            <p className="post-text">
               {post.post}
             </p>
           </li>
@@ -31,9 +31,11 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <h2>Welcome Home~</h2>
+      <h2 className="welcome">Welcome Home ~</h2>
+      <div className="new-post">
       <h3>Create a new post:</h3>
       <PostForm/>
+      </div>
       {isLoading && <p>Loading posts...</p>}
       {posts && (
         <ul>
