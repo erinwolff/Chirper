@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon src/server/index.js",
     "build": "vite build",
-    "start": "node src/server"
+    "start": "node src/server",
+    "deploy": "prisma migrate deploy && prisma db seed",
+    "test": "jest"
   },
   "prisma": {
     "schema": "src/server/prisma/schema.prisma",
